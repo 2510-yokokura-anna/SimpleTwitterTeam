@@ -61,8 +61,8 @@ public class MessageService {
             	end = dateTimeFormat.format(cl.getTime());
             }
 
-            List<UserMessage> messages = new UserMessageDao().select(connection, id, start, end, searchWord, likeSearch, LIMIT_NUM);
-            return messages;
+    		List<UserMessage> messages = new UserMessageDao().select(connection, id, start, end, searchWord, likeSearch, LIMIT_NUM);
+    		return messages;
         } catch (RuntimeException e) {
             rollback(connection);
             throw e;

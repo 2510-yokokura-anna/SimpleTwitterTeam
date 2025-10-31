@@ -17,6 +17,7 @@ import chapter6.exception.SQLRuntimeException;
 public class UserMessageDao {
 
 	public List<UserMessage> select(Connection connection, Integer userId, String start, String end, String searchWord, String likeSearch, int num) {
+
 		PreparedStatement ps = null;
 		try {
 			StringBuilder sql = new StringBuilder();
