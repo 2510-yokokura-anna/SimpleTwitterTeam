@@ -32,11 +32,14 @@ public class TopServlet extends HttpServlet {
 		String userId = request.getParameter("user_id");
 		String start = request.getParameter("start");
         String end = request.getParameter("end");
-        List<UserMessage> messages = new MessageService().select(userId, start, end);
+        String searchWord = request.getParameter("word");
+        String radiobutton = request.getParameter("radiobutton");
+        List<UserMessage> messages = new MessageService().select(userId, start, end, searchWord, radiobutton);
 
         //返信コメントを表示する
         List<UserComment> comments = new CommentService().select();
 
+        request.setAttribute("searchWord", request.getParameter("word"));
         request.setAttribute("start", start);
         request.setAttribute("end", end);
         request.setAttribute("messages", messages);
